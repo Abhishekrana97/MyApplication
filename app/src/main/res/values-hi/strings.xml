@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="my_google_map_api_key">AIzaSyBmgAYG2Zt8R9RTVW8pIR0-O5C4637RzME</string>
+    <string name="app_name">मायएप्लिकेशन</string>
+    <string name="register">पंजीकरण करें</string>
+    <string name="onboading_msg">आप घर पर ही विभिन्न विज्ञानों का अध्ययन कर सकते हैं</string>
+    <string name="login">लॉगिन</string>
+    <string name="Yes">हां</string>
+    <string name="next_step">अगला कदम</string>
+    <string name="no">नहीं</string>
+    <string name="logout">लॉगआउट</string>
+    <string name="deposit">जमा</string>
+    <string name="credit">क्रेडिट</string>
+    <string name="change_language">भाषा बदलें</string>
+    <string name="dark_mode">डार्क मोड</string>
+    <string name="biometric">फिंगरप्रिंट सक्षम करें</string>
+    <string name="already_have_an_account">क्या आपके पास पहले से खाता है?</string>
+    <string name="terms_conditions"><![CDATA[मैं शर्तों और नियमों से सहमत हूँ]]></string>
+    <string name="card_terms"><![CDATA[डेबिट/क्रेडिट कार्ड जोड़ने से आप शर्तों और नियमों से सहमत होते हैं]]></string>
+    <string name="add_your_bank_card">अपना बैंक कार्ड जोड़ें</string>
+    <string name="link_card">कार्ड लिंक करें</string>
+    <string name="update_card">कार्ड अपडेट करें</string>
+    <string name="delete_card">कार्ड हटाएं</string>
+    <string name="delete_card_msg">क्या आप वाकई कार्ड हटाना चाहते हैं?</string>
+    <string name="target_currency">लक्ष्य मुद्रा</string>
+    <string name="current_currency">वर्तमान मुद्रा</string>
+    <string name="currency_limit_note">नोट: आप केवल 0 से 24 तक की वर्तमान मुद्रा चुन सकते हैं</string>
+    <string name="confirm">पुष्टि करें</string>
+    <string name="settings">सेटिंग्स</string>
+    <string name="exchange_currency">मुद्रा विनिमय</string>
+    <string name="cards">कार्ड्स</string>
+    <string name="add_card">कार्ड जोड़ें</string>
+    <string name="deposit_list">जमा सूची</string>
+    <string name="expenses">खर्चे</string>
+    <string name="graph">ग्राफ</string>
+    <string name="profile">प्रोफ़ाइल</string>
+    <string name="bank_card">बैंक कार्ड</string>
+    <string name="card_holder_number">कार्ड धारक संख्या</string>
+    <string name="card_number">कार्ड संख्या</string>
+    <string name="mm_yy">महीना/वर्ष</string>
+    <string name="cvv">सीवीवी</string>
+    <string name="holder_name">"धारक नाम : "</string>
+    <string name="validity">"वैधता : "</string>
+    <string name="cvv_txt">"सीवीवी : "</string>
+    <string name="name">नाम</string>
+    <string name="password">पासवर्ड</string>
+    <string name="next">अगला</string>
+    <string name="view_pdf">पीडीएफ देखें</string>
+    <string name="logout_msg">क्या आप वाकई लॉगआउट करना चाहते हैं?</string>
+    <string name="dismiss">अस्वीकार करें</string>
+    <string name="maps">मानचित्र</string>
+    <string name="sensor_msg">सेंसोर पर अपनी उंगली रखें या फ्रंट कैमरे को देखकर प्रमाणित करें।</string>
+    <string name="biometric_authentication">जैविक प्रमाणीकरण</string>
+    <string name="cancel">रद्द करें</string>
+    <string name="location">आवश्यक स्थान अनुमति</string>
+    <string name="location_msg">मानचित्र तक पहुँचने के लिए आपको स्थान अनुमति सक्षम करनी होगी।</string>
+    <string name="location_enable_msg">कृपया सेवा जारी रखने के लिए स्थान सेवाओं को सक्षम करें।</string>
+    <string name="select_card">कार्ड चुनें</string>
+
+
+</resources>

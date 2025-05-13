@@ -1,0 +1,163 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > Constants</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.example.myapplication.utils</a>
+</div>
+
+<h1>Coverage Summary for Class: Constants (com.example.myapplication.utils)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Constants</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/18)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/19)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.example.myapplication.utils
+&nbsp;
+&nbsp;import androidx.compose.ui.graphics.Brush
+&nbsp;import androidx.compose.ui.graphics.Color
+&nbsp;import com.example.myapplication.R
+&nbsp;import com.example.myapplication.theme.Purple
+&nbsp;
+&nbsp;object Constants {
+&nbsp;
+&nbsp;    const val BASE_URL = &quot;https://mocki.io/v1/&quot;
+&nbsp;
+&nbsp;    fun getCardLogo(cardNumber: String): Int {
+<b class="nc">&nbsp;        return when {</b>
+<b class="nc">&nbsp;            cardNumber.startsWith(&quot;4&quot;) -&gt; R.drawable.ic_visa // Visa logo</b>
+<b class="nc">&nbsp;            cardNumber.startsWith(&quot;5&quot;) -&gt; R.drawable.ic_master_card // MasterCard logo</b>
+<b class="nc">&nbsp;            cardNumber.startsWith(&quot;6&quot;) -&gt; R.drawable.ic_rupay // RuPay logo</b>
+<b class="nc">&nbsp;            else -&gt; R.drawable.ic_visa // Default logo (if no match)</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    fun getCardTitle(cardNumber: String): String {
+<b class="nc">&nbsp;        return when {</b>
+<b class="nc">&nbsp;            cardNumber.startsWith(&quot;4&quot;) -&gt;&quot;Visa Card&quot;</b>
+<b class="nc">&nbsp;            cardNumber.startsWith(&quot;5&quot;) -&gt; &quot;Master Card&quot;</b>
+<b class="nc">&nbsp;            cardNumber.startsWith(&quot;6&quot;) -&gt; &quot;RuPay Card&quot;</b>
+<b class="nc">&nbsp;            else -&gt; &quot;Visa Card&quot;</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    fun getCardbg(cardNumber: String): Brush {
+<b class="nc">&nbsp;        return when {</b>
+<b class="nc">&nbsp;            cardNumber.startsWith(&quot;4&quot;) -&gt; Brush.verticalGradient(</b>
+<b class="nc">&nbsp;                colors = listOf(Purple, Color.Black)</b>
+&nbsp;            )
+<b class="nc">&nbsp;            cardNumber.startsWith(&quot;5&quot;) -&gt; Brush.verticalGradient(</b>
+<b class="nc">&nbsp;                colors = listOf(Color.Red, Color.Black)</b>
+&nbsp;            )
+<b class="nc">&nbsp;            cardNumber.startsWith(&quot;6&quot;) -&gt; Brush.verticalGradient(</b>
+<b class="nc">&nbsp;                colors = listOf(Color.Blue, Color.Black)</b>
+&nbsp;            )
+<b class="nc">&nbsp;            else -&gt; Brush.verticalGradient(</b>
+<b class="nc">&nbsp;                colors = listOf(Purple, Color.Black)</b>
+&nbsp;            )
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-01-23 12:06</div>
+</div>
+</body>
+</html>

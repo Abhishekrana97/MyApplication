@@ -1,0 +1,233 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > CurrencyScreenViewModel</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.example.myapplication.presentation.viewmodel</a>
+</div>
+
+<h1>Coverage Summary for Class: CurrencyScreenViewModel (com.example.myapplication.presentation.viewmodel)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">CurrencyScreenViewModel</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/23)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">CurrencyScreenViewModel$getCurrencyDetails$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    25%
+  </span>
+  <span class="absValue">
+    (1/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/9)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/13)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    10%
+  </span>
+  <span class="absValue">
+    (1/10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/32)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.example.myapplication.presentation.viewmodel
+&nbsp;
+&nbsp;import androidx.lifecycle.ViewModel
+&nbsp;import androidx.lifecycle.viewModelScope
+&nbsp;import com.example.myapplication.data.model.ExchangeCurrency
+&nbsp;import com.example.myapplication.domain.usecase.ExchangeCurrencyUseCase
+&nbsp;import com.example.myapplication.utils.DataState
+&nbsp;import dagger.hilt.android.lifecycle.HiltViewModel
+&nbsp;import kotlinx.coroutines.Dispatchers
+&nbsp;import kotlinx.coroutines.flow.MutableStateFlow
+&nbsp;import kotlinx.coroutines.flow.asStateFlow
+&nbsp;import kotlinx.coroutines.launch
+&nbsp;import timber.log.Timber
+&nbsp;import javax.inject.Inject
+&nbsp;
+&nbsp;@HiltViewModel
+&nbsp;class CurrencyScreenViewModel @Inject constructor(
+<b class="nc">&nbsp;    private val exchangeCurrencyUseCase: ExchangeCurrencyUseCase</b>
+<b class="nc">&nbsp;) : ViewModel() {</b>
+&nbsp;
+<b class="nc">&nbsp;    private val _updatedCurrencyValue = MutableStateFlow&lt;ExchangeCurrency?&gt;(null)</b>
+<b class="nc">&nbsp;    val updatedCurrencyValue get() = _updatedCurrencyValue.asStateFlow()</b>
+&nbsp;
+<b class="nc">&nbsp;    private val _currentCurrencyKey = MutableStateFlow(&quot;USD&quot;)</b>
+<b class="nc">&nbsp;    val currentCurrencyKey get() = _currentCurrencyKey.asStateFlow()</b>
+&nbsp;
+<b class="nc">&nbsp;    private val _targetCurrencyKey = MutableStateFlow(&quot;AED&quot;)</b>
+<b class="nc">&nbsp;    val targetCurrencyKey get() = _targetCurrencyKey.asStateFlow()</b>
+&nbsp;
+<b class="nc">&nbsp;    private val _sliderValue = MutableStateFlow(0f)</b>
+<b class="nc">&nbsp;    val sliderValue get() = _sliderValue.asStateFlow()</b>
+&nbsp;
+<b class="nc">&nbsp;    private val _convertedValue = MutableStateFlow(0f)</b>
+<b class="nc">&nbsp;    val convertedValue get() = _convertedValue.asStateFlow()</b>
+&nbsp;
+<b class="nc">&nbsp;    private val _isLoading = MutableStateFlow(true)</b>
+<b class="nc">&nbsp;    val isLoading get() = _isLoading.asStateFlow()</b>
+&nbsp;
+&nbsp;    fun getCurrencyDetails(path:String) {
+<b class="nc">&nbsp;        viewModelScope.launch(Dispatchers.IO) {</b>
+<b class="nc">&nbsp;            exchangeCurrencyUseCase(path).let {</b>
+<b class="nc">&nbsp;                when (it) {</b>
+<b class="nc">&nbsp;                    is DataState.Success -&gt; {</b>
+<b class="nc">&nbsp;                        _updatedCurrencyValue.value = it.data</b>
+<b class="nc">&nbsp;                        _isLoading.value = false</b>
+<b class="nc">&nbsp;                        calculateConvertedValue()</b>
+&nbsp;                    }
+<b class="nc">&nbsp;                    is DataState.Error -&gt; {</b>
+<b class="nc">&nbsp;                        _isLoading.value = false</b>
+&nbsp;                    }
+&nbsp;                }
+<b class="nc">&nbsp;            }</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    fun onCurrentCurrencySelected(updatedKey: String) {
+<b class="nc">&nbsp;        _currentCurrencyKey.value = updatedKey</b>
+<b class="nc">&nbsp;        calculateConvertedValue()</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    fun onTargetCurrencySelected(updatedKey: String) {
+<b class="nc">&nbsp;        _targetCurrencyKey.value = updatedKey</b>
+<b class="nc">&nbsp;        calculateConvertedValue()</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    fun onSliderValueChanged(value: Float) {
+<b class="nc">&nbsp;        _sliderValue.value = String.format(&quot;%.3f&quot;, value).toFloat()</b>
+<b class="nc">&nbsp;        calculateConvertedValue()</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private fun calculateConvertedValue() {
+<b class="nc">&nbsp;        val targetRate = _updatedCurrencyValue.value?.rates?.get(targetCurrencyKey.value)?: 0f</b>
+<b class="nc">&nbsp;        _convertedValue.value = String.format(&quot;%.3f&quot;, (sliderValue.value * targetRate.toFloat())).toFloat()</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-01-23 12:06</div>
+</div>
+</body>
+</html>
